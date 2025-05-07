@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MealMatch - Recipes</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url(../static/photos/background.jpg); /* Adjust path if needed */
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #000000;
+            padding: 15px 0;
+            text-align: center;
+            color: white;
+        }
+
+        header .logo {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            align-items: flex-start;
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: transparent;
+            text-decoration: none;
+            align-self: flex-end;
+            font-size: 1.2em;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Recipes Page Styles */
+        .recipes-page {
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .recipes-page h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .recipes-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 10px;
+        }
+
+        .recipe-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .recipe-item h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .recipe-btn {
+            background-color: #ffaf02;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .recipe-btn:hover {
+            background-color: #ffaf02;
+        }
+
+        .recipe-details {
+            display: none;
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #ffaf02;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .recipe-details h4 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .recipe-details ul {
+            list-style-type: square;
+            margin-left: 20px;
+
+        }
+
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .recipes-list {
+                grid-template-columns: 1fr;
+            }
+
+            .recipe-item {
+                padding: 15px;
+            }
+
+            .recipe-btn {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="recipes">
+        <h1>MealMatch</h1>
+        <li style="list-style: none;">
+            <a href="{{ url_for('dashboard') }}">
+                <button class="plain-btn">Home</button>
+            </a>
+        </li>
+    </header>
+
+    <!-- Recipes Page -->
+    <div class="recipes-page">
+        <!--<h1>Indian Recipes</h1>-->
+        <div class="recipes-list">
+
+            <!-- Recipe 1 -->
+            <div class="recipe-item">
+                <h3>Butter Chicken</h3>
+                <button class="recipe-btn" onclick="toggleRecipe('recipe1')">View Recipe</button>
+                <div id="recipe1" class="recipe-details">
+                    <h4>Ingredients:</h4>
+                    <ul>
+                        <li>Chicken</li>
+                        <li>Butter</li>
+                        <li>Tomato Puree</li>
+                        <li>Spices</li>
+                        <li>Garlic</li>
+                        <li>Ginger</li>
+                    </ul>
+                    <h4>Instructions:</h4>
+                    <p>Cook chicken in butter and spices, add tomato puree, and simmer until cooked through.</p>
+                </div>
+            </div>
+
+            <!-- Recipe 2 -->
+            <div class="recipe-item">
+                <h3>Palak Paneer</h3>
+                <button class="recipe-btn" onclick="toggleRecipe('recipe2')">View Recipe</button>
+                <div id="recipe2" class="recipe-details">
+                    <h4>Ingredients:</h4>
+                    <ul>
+                        <li>Paneer</li>
+                        <li>Spinach</li>
+                        <li>Onions</li>
+                        <li>Garlic</li>
+                        <li>Ginger</li>
+                    </ul>
+                    <h4>Instructions:</h4>
+                    <p>Blend spinach into a paste, cook with onions and spices, add paneer cubes and cook until well-mixed.</p>
+                </div>
+            </div>
+
+            <!-- Recipe 3 -->
+            <div class="recipe-item">
+                <h3>Chole Bhature</h3>
+                <button class="recipe-btn" onclick="toggleRecipe('recipe3')">View Recipe</button>
+                <div id="recipe3" class="recipe-details">
+                    <h4>Ingredients:</h4>
+                    <ul>
+                        <li>Chickpeas</li>
+                        <li>Flour</li>
+                        <li>Yogurt</li>
+                        <li>Ginger</li>
+                        <li>Garlic</li>
+                    </ul>
+                    <h4>Instructions:</h4>
+                    <p>Cook chickpeas in spices, prepare bhature dough, and fry the bhature.</p>
+                </div>
+            </div>
+
+            <!-- Recipe 4 -->
+            <div class="recipe-item">
+                <h3>Masala Dosa</h3>
+                <button class="recipe-btn" onclick="toggleRecipe('recipe4')">View Recipe</button>
+                <div id="recipe4" class="recipe-details">
+                    <h4>Ingredients:</h4>
+                    <ul>
+                        <li>Rice</li>
+                        <li>Urad Dal</li>
+                        <li>Potatoes</li>
+                        <li>Mustard Seeds</li>
+                    </ul>
+                    <h4>Instructions:</h4>
+                    <p>Prepare dosa batter, cook potatoes with spices, and fill dosa with the potato mixture.</p>
+                </div>
+            </div>
+
+            <!-- Recipe 5 -->
+            <div class="recipe-item">
+                <h3>Dal Tadka</h3>
+                <button class="recipe-btn" onclick="toggleRecipe('recipe5')">View Recipe</button>
+                <div id="recipe5" class="recipe-details">
+                    <h4>Ingredients:</h4>
+                    <ul>
+                        <li>Lentils</li>
+                        <li>Onions</li>
+                        <li>Tomatoes</li>
+                        <li>Ghee</li>
+                        <li>Garlic</li>
+                    </ul>
+                    <h4>Instructions:</h4>
+                    <p>Cook lentils, prepare tempering with ghee, garlic, and spices, and mix into dal.</p>
+                </div>
+            </div>
+
+            <!-- Recipe 6 -->
+            <div class="recipe-item">
+                <h3>Biriyani</h3>
+                <button class="recipe-btn" onclick="toggleRecipe('recipe6')">View Recipe</button>
+                <div id="recipe6" class="recipe-details">
+                    <h4>Ingredients:</h4>
+                    <ul>
+                        <li>Rice</li>
+                        <li>Chicken/Vegetables</li>
+                        <li>Yogurt</li>
+                        <li>Spices</li>
+                    </ul>
+                    <h4>Instructions:</h4>
+                    <p>Marinate chicken or vegetables, cook with rice and spices in a sealed pot.</p>
+                </div>
+            </div>
+
+            <!-- Recipe 7 -->
+            <div class="recipe-item">
+                <h3>Rajma</h3>
+                <button class="recipe-btn" onclick="toggleRecipe('recipe7')">View Recipe</button>
+                <div id="recipe7" class="recipe-details">
+                    <h4>Ingredients:</h4>
+                    <ul>
+                        <li>Kidney Beans</li>
+                        <li>Onions</li>
+                        <li>Tomatoes</li>
+                        <li>Spices</li>
+                    </ul>
+                    <h4>Instructions:</h4>
+                    <p>Cook kidney beans in spices, tomatoes, and onions until soft.</p>
+                </div>
+            </div>
+
+            <!-- Recipe 8 -->
+            <div class="recipe-item">
+                <h3>Chicken Tikka</h3>
+                <button class="recipe-btn" onclick="toggleRecipe('recipe8')">View Recipe</button>
+                <div id="recipe8" class="recipe-details">
+                    <h4>Ingredients:</h4>
+                    <ul>
+                        <li>Chicken</li>
+                        <li>Yogurt</li>
+                        <li>Ginger-Garlic Paste</li>
+                        <li>Spices</li>
+                    </ul>
+                    <h4>Instructions:</h4>
+                    <p>Marinate chicken in yogurt and spices, then grill or bake until cooked through.</p>
+                </div>
+            </div>
+
+            <!-- Recipe 9 -->
+            <div class="recipe-item">
+                <h3>Aloo Paratha</h3>
+                <button class="recipe-btn" onclick="toggleRecipe('recipe9')">View Recipe</button>
+                <div id="recipe9" class="recipe-details">
+                    <h4>Ingredients:</h4>
+                    <ul>
+                        <li>Potatoes</li>
+                        <li>Wheat Flour</li>
+                        <li>Spices</li>
+                    </ul>
+                    <h4>Instructions:</h4>
+                    <p>Fill dough with spiced mashed potatoes, roll into a flatbread, and cook on a tawa.</p>
+                </div>
+            </div>
+
+            <!-- Recipe 10 -->
+            <div class="recipe-item">
+                <h3>Gulab Jamun</h3>
+                <button class="recipe-btn" onclick="toggleRecipe('recipe10')">View Recipe</button>
+                <div id="recipe10" class="recipe-details">
+                    <h4>Ingredients:</h4>
+                    <ul>
+                        <li>Milk Powder</li>
+                        <li>Flour</li>
+                        <li>Sugar</li>
+                        <li>Cardamom</li>
+                    </ul>
+                    <h4>Instructions:</h4>
+                    <p>Make dough, shape into balls, fry until golden, and soak in sugar syrup.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 MealMatch. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleRecipe(recipeId) {
+            var recipeDetails = document.getElementById(recipeId);
+            recipeDetails.style.display = (recipeDetails.style.display === "none" || recipeDetails.style.display === "") ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | MealMatch</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">MealMatch</h1>
+        </div>
+    </header>
+    
+    <section class="auth-section">
+        <form method="POST" action="{{ url_for('signup') }}" class="auth-form">
+            <h2>Sign Up</h2>
+
+            <!-- Added missing email field -->
+            <input type="email" name="email" placeholder="Email" required>
+
+            <input type="text" name="name" placeholder="name" required>
+
+            <input type="password" name="password" placeholder="Password" required>
+
+            <button type="submit">Sign Up</button>
+
+            <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+        </form>
+    </section>
+</body>
+</html>

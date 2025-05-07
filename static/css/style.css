@@ -1,0 +1,374 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Body for Auth Pages */
+.auth-page {
+    background-color: #000000;
+    color: #000;
+}
+
+/* Body for Other Pages (with background image) */
+.page-background {
+    background: url(../photos/background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: calc(100vh - 60px); /* full screen minus header */
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    height: 60px;
+    width: 100%;
+    background-color: #040404;
+    color: white;
+    display: flex;
+    align-items: center;
+    position: fixed; /* Fix the header at the top */
+    top: 0;
+    z-index: 1000;
+    padding: 0 20px;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Navigation */
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+}
+
+.nav-list li {
+    list-style: none;
+}
+
+.nav-list li button {
+    background-color: #040404;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.nav-list li button:hover {
+    background-color: #57576e;
+}
+
+/* Hero Section */
+.hero {
+    width: 100%;
+    height: calc(100vh - 60px); /* Full viewport height minus header */
+    background: url(../photos/background.jpg) center center;
+    background-size: cover;
+    background-attachment: scroll;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 50px;
+}
+
+.hero h2 {
+    font-size: 50px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-left: 65px;
+}
+
+/* Search Box */
+.search-box {
+    max-width: 550px;
+    margin: 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+.search-box input {
+    width: 70%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #bd1f44;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.search-box button {
+    padding: 10px 20px;
+    background-color: #bd1f44;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Auth Section */
+.auth-section {
+    padding: 50px 30px;
+    text-align: center;
+}
+
+.auth-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background: #ffaf02;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+    color: black;
+}
+
+.auth-form h2 {
+    margin-bottom: 20px;
+    color: black;
+}
+
+.auth-form input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    color: black;
+}
+
+.auth-form button {
+    padding: 10px 20px;
+    background-color: #000;
+    color: #ffaf02;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.auth-form a {
+    color: black;
+}
+
+/* Ingredient Finder Page */
+.ingredient-finder-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: transparent; /* inherited from .page-background */
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.ingredient-finder-section .container {
+    max-width: 1000px;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.ingredient-finder-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.ingredient-finder-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+}
+
+.ingredient-finder-section input[type="file"] {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    width: 80%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.ingredient-finder-section button {
+    padding: 10px 20px;
+    background-color: #ffaf02;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 80%;
+}
+
+.ingredient-finder-section button:hover {
+    background-color: #ffe4e1;
+}
+
+/* About Page */
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: transparent; /* inherited from .page-background */
+}
+
+.about-section .container {
+    max-width: 1000px;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    background: #ffaf02;
+    border-radius: 10px;
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: black; /* Text color for About section */
+}
+
+.about-section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: black; /* Text color for paragraph */
+}
+
+.about-section button {
+    padding: 10px 20px;
+    background-color: #ffaf02;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.about-section button:hover {
+    background-color: #ffe4e1;
+}
+
+/* Chatbot Page Header with Home Button */
+.chatbot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1a1a1a;
+    padding: 15px 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    position: fixed; /* Ensures the header stays at the top */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.chatbot-header h1 {
+    color: #ffffff;
+    margin: 0;
+}
+
+/* Home Button */
+.chatbot-header .home-btn {
+    background-color: #040404;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.chatbot-header .home-btn:hover {
+    background-color: #57576e;
+}
+
+/* Content Padding for Chatbot Page */
+.content-padding {
+    padding-top: 80px; /* To make space for the fixed header */
+}
+
+/* Header for About Page */
+.about-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #040404;
+    padding: 15px 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    position: fixed; /* Fix the header at the top */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.about-header h1 {
+    color: #ffffff;
+    margin: 0;
+}
+
+.about-header .plain-btn {
+    background: none;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.about-header .plain-btn:hover {
+    text-decoration: underline;
+}
+
+/* Content Padding for About Page */
+.about-content-padding {
+    padding-top: 80px; /* To make space for the fixed header */
+}

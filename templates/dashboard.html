@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | MealMatch</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">MealMatch</h1>
+            <nav>
+                <ul class="nav-list">
+                    <!--<li><a href="{{ url_for('dashboard') }}"><button>Home</button></a></li>-->
+                    <li><a href="{{ url_for('about') }}"><button class="nav-button">About</button></a></li>
+                    <li><a href="{{ url_for('ingredient_finder') }}"><button>Ingredient Finder</button></a></li>
+                    <li><a href="{{ url_for('recipes') }}"><button>Recipes</button></a></li>
+                    <li><a href="{{ url_for('chatbot') }}"><button>Chatbot</button></a></li>
+                    <li><a href="{{ url_for('feedback') }}"><button>Feedback</button></a></li>
+                    <li><a href="{{ url_for('logout') }}"><button>Logout</button></a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-section">
+            <h2>Welcome to MealMatch!</h2>
+            <!--<p>Search mouth-watering recipes to satisfy your cravings.</p>
+            <form action="#" class="search-box">
+                <input type="text" placeholder="Search Recipe">
+                <button type="submit">Search</button>-->
+            </form>
+        </div>
+    </section>
+</body>
+</html>

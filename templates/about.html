@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | MealMatch</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="page-background"> <!-- Adding the background to the body class -->
+
+    <header>
+        <div class="container">
+            <h1 class="logo">MealMatch</h1>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="{{ url_for('dashboard') }}"><button>Home</button></a></li>
+                    <!--<li><a href="{{ url_for('ingredient_finder') }}"><button>Ingredient Finder</button></a></li>-->
+                    <!--<li><a href="{{ url_for('about') }}"><button>About</button></a></li>-->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="about-section">
+        <div class="container">
+            <h2>About MealMatch</h2>
+
+            <p>
+                <strong>MealMatch</strong> is a smart web application designed to assist users in discovering meals they can prepare based on the ingredients they already have at home. It aims to minimize food wastage, simplify meal planning, and promote efficient grocery utilization. The core functionality includes an AI-powered <strong>ingredient detection</strong> system. Users can upload an image of an ingredient, and our trained convolutional neural network (CNN) model classifies the ingredient to help in generating suitable recipes based on it. This feature is especially useful for quick meal decisions without needing to manually enter ingredient names. Users can create accounts to access a personalized dashboard, upload ingredient images, view detected items, and explore potential recipes. The project integrates both frontend and backend seamlessly, using Flask, HTML/CSS, and machine learning models.
+            </p>
+
+            <p>
+                MealMatch is a step toward smarter, AI-assisted kitchens that prioritize sustainability, convenience, and personalization.
+            </p>
+        </div>
+    </section>
+
+</body>
+</html>
